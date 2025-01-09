@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.CubicCurve?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <AnchorPane fx:id="si_form" layoutX="300.0" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #92B19F;">
+               <children>
+                  <Label contentDisplay="CENTER" layoutX="55.0" layoutY="95.0" text="WELCOME TO ECOFOODS!" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Cambria Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="si_username" layoutX="40.0" layoutY="156.0" prefHeight="30.0" prefWidth="220.0" promptText="masukan username" />
+                  <PasswordField fx:id="si_password" layoutX="40.0" layoutY="211.0" prefHeight="30.0" prefWidth="220.0" promptText="masukan password" />
+                  <Label contentDisplay="CENTER" layoutX="42.0" layoutY="141.0" text="Username" textAlignment="CENTER">
+                     <font>
+                        <Font name="Cambria Math" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label contentDisplay="CENTER" layoutX="42.0" layoutY="196.0" text="Password" textAlignment="CENTER">
+                     <font>
+                        <Font name="Cambria Math" size="12.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="si_bttn" layoutX="122.0" layoutY="261.0" mnemonicParsing="false" onAction="#sibtn" style="-fx-background-color: #D09632;" styleClass="login-btn" stylesheets="@../../../styles/login.css" text="Sign In" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="71.0" layoutY="291.0" text="Belum punya akun?" textFill="WHITE" />
+                  <Button fx:id="goto_su" layoutX="170.0" layoutY="287.0" mnemonicParsing="false" onAction="#switchForm" style="-fx-background-color: transparent;" styleClass="login-btn" stylesheets="@../../../styles/login.css" text="Sign Up" textFill="#d2de32" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="su_form" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #92B19F;">
+               <children>
+                  <Label contentDisplay="CENTER" layoutX="43.0" layoutY="31.0" text="SIGN UP HERE!" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Cambria Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="su_alamat" layoutX="40.0" layoutY="169.0" prefHeight="30.0" prefWidth="220.0" promptText="masukan alamat" />
+                  <PasswordField fx:id="su_pass" layoutX="40.0" layoutY="217.0" prefHeight="30.0" prefWidth="220.0" promptText="masukan kata sandi" />
+                  <Label contentDisplay="CENTER" layoutX="42.0" layoutY="154.0" text="alamat" textAlignment="CENTER">
+                     <font>
+                        <Font name="Cambria Math" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label contentDisplay="CENTER" layoutX="42.0" layoutY="202.0" text="kata sandi" textAlignment="CENTER">
+                     <font>
+                        <Font name="Cambria Math" size="12.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="su_bttn" layoutX="122.0" layoutY="305.0" mnemonicParsing="false" onAction="#subtn" style="-fx-background-color: #D09632;" styleClass="login-btn" stylesheets="@../../../styles/login.css" text="Sign Up" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="71.0" layoutY="335.0" text="Sudah punya akun?" textFill="WHITE" />
+                  <Button fx:id="goto_si" layoutX="170.0" layoutY="331.0" mnemonicParsing="false" onAction="#switchForm" style="-fx-background-color: transparent;" styleClass="login-btn" stylesheets="@../../../styles/login.css" text="Sign In" textFill="#d2de32" />
+                  <TextField fx:id="su_email" layoutX="40.0" layoutY="122.0" prefHeight="30.0" prefWidth="220.0" promptText="masukan email" />
+                  <Label contentDisplay="CENTER" layoutX="42.0" layoutY="107.0" text="Email" textAlignment="CENTER">
+                     <font>
+                        <Font name="Cambria Math" size="12.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="su_nama" layoutX="40.0" layoutY="74.0" prefHeight="30.0" prefWidth="220.0" promptText="masukan nama" />
+                  <Label contentDisplay="CENTER" layoutX="42.0" layoutY="59.0" text="Nama" textAlignment="CENTER">
+                     <font>
+                        <Font name="Cambria Math" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label contentDisplay="CENTER" layoutX="42.0" layoutY="249.0" text="No. Telepon" textAlignment="CENTER">
+                     <font>
+                        <Font name="Cambria Math" size="12.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="su_notelp" layoutX="40.0" layoutY="263.0" prefHeight="30.0" prefWidth="220.0" promptText="masukan nomor tekepon" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="side_form" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #398378; -fx-background-radius: 15;">
+               <children>
+                  <Label layoutX="91.0" layoutY="195.0" text="Eco" textFill="#92b19f">
+                     <font>
+                        <Font name="Cambria Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="132.0" layoutY="195.0" text="Foods!" textFill="#d09632">
+                     <font>
+                        <Font name="Cambria Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <CubicCurve controlX1="-69.79998779296875" controlX2="-69.79998779296875" controlY1="-57.59999084472656" controlY2="64.79998779296875" endX="24.79998779296875" endY="5.9999847412109375" fill="#d09632" layoutX="239.0" layoutY="164.0" startX="-20.79998779296875" startY="44.40000915527344" stroke="BLACK" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
