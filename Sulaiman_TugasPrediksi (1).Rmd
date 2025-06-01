@@ -1,0 +1,64 @@
+---
+title: "project_sulaiman"
+output: html_document
+---
+## Install library
+```{r}
+library(caret)
+library(randomForest)
+library(rpart)     
+library(e1071)    
+library(dplyr)
+```
+
+## Download dan load dataset
+```{r}
+trainUrl <- "https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv"
+testUrl <- "https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv"
+
+training <- read.csv(url(trainUrl), na.strings = c("NA", "#DIV/0!", ""))
+testing <- read.csv(url(testUrl), na.strings = c("NA", "#DIV/0!", ""))
+```
+
+## pra proses data
+```{r}
+training <- training[, colSums(is.na(training)) == 0]
+testing <- testing[, colSums(is.na(testing)) == 0]
+
+training <- training[, -c(1:7)]
+testing <- testing[, -c(1:7)]
+
+testing <- testing[, names(testing) %in% names(training)[-ncol(training)]]
+```
+
+## Split data train dan test
+```{r}
+set.seed(123)
+inTrain <- createDataPartition(training$classe, p = 0.7, list = FALSE)
+trainingSet <- training[inTrain, ]
+validationSet <- training[-inTrain, ]
+
+trainingSet$classe <- as.factor(trainingSet$classe)
+validationSet$classe <- factor(validationSet$classe, levels = levels(trainingSet$classe))
+```
+
+## Latih model random forest
+```{r}
+set.seed(12345)
+model_rf <- randomForest(classe ~ ., data = trainingSet)
+```
+
+## Prediksi data validasi
+```{r}
+pred_rf <- predict(model_rf, newdata = validationSet)
+confusionMatrix(pred_rf, validationSet$classe)
+```
+
+## Prediksi 20 data test
+```{r}
+testing <- testing[, names(trainingSet)[-ncol(trainingSet)]]
+
+final_predictions <- predict(model_rf, newdata = testing)
+print(final_predictions)
+```
+
